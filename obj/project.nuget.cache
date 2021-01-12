@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "7v96vt57+KeefB7GnTpCK56FV/z5NTIXm+hzMtLleWoE15bfz8fhYLaFk8QHy19ZIVcSp9AQW4N0TzCUHUE61A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\wandile\\Desktop\\OptiSolutions AppFactory\\ConwaysGameOfLife\\ConwaysGameOfLife\\ConwaysGameOfLife.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\wandile\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\wandile\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.10\\microsoft.netcore.app.host.win-x64.3.1.10.nupkg.sha512"
+  ],
+  "logs": []
+}

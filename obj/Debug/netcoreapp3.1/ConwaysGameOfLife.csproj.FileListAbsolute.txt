@@ -1,0 +1,13 @@
+C:\Users\wandile\Desktop\OptiSolutions AppFactory\ConwaysGameOfLife\ConwaysGameOfLife\bin\Debug\netcoreapp3.1\ConwaysGameOfLife.exe
+C:\Users\wandile\Desktop\OptiSolutions AppFactory\ConwaysGameOfLife\ConwaysGameOfLife\bin\Debug\netcoreapp3.1\ConwaysGameOfLife.deps.json
+C:\Users\wandile\Desktop\OptiSolutions AppFactory\ConwaysGameOfLife\ConwaysGameOfLife\bin\Debug\netcoreapp3.1\ConwaysGameOfLife.runtimeconfig.json
+C:\Users\wandile\Desktop\OptiSolutions AppFactory\ConwaysGameOfLife\ConwaysGameOfLife\bin\Debug\netcoreapp3.1\ConwaysGameOfLife.runtimeconfig.dev.json
+C:\Users\wandile\Desktop\OptiSolutions AppFactory\ConwaysGameOfLife\ConwaysGameOfLife\bin\Debug\netcoreapp3.1\ConwaysGameOfLife.dll
+C:\Users\wandile\Desktop\OptiSolutions AppFactory\ConwaysGameOfLife\ConwaysGameOfLife\bin\Debug\netcoreapp3.1\ConwaysGameOfLife.pdb
+C:\Users\wandile\Desktop\OptiSolutions AppFactory\ConwaysGameOfLife\ConwaysGameOfLife\obj\Debug\netcoreapp3.1\ConwaysGameOfLife.csprojAssemblyReference.cache
+C:\Users\wandile\Desktop\OptiSolutions AppFactory\ConwaysGameOfLife\ConwaysGameOfLife\obj\Debug\netcoreapp3.1\ConwaysGameOfLife.AssemblyInfoInputs.cache
+C:\Users\wandile\Desktop\OptiSolutions AppFactory\ConwaysGameOfLife\ConwaysGameOfLife\obj\Debug\netcoreapp3.1\ConwaysGameOfLife.AssemblyInfo.cs
+C:\Users\wandile\Desktop\OptiSolutions AppFactory\ConwaysGameOfLife\ConwaysGameOfLife\obj\Debug\netcoreapp3.1\ConwaysGameOfLife.csproj.CoreCompileInputs.cache
+C:\Users\wandile\Desktop\OptiSolutions AppFactory\ConwaysGameOfLife\ConwaysGameOfLife\obj\Debug\netcoreapp3.1\ConwaysGameOfLife.dll
+C:\Users\wandile\Desktop\OptiSolutions AppFactory\ConwaysGameOfLife\ConwaysGameOfLife\obj\Debug\netcoreapp3.1\ConwaysGameOfLife.pdb
+C:\Users\wandile\Desktop\OptiSolutions AppFactory\ConwaysGameOfLife\ConwaysGameOfLife\obj\Debug\netcoreapp3.1\ConwaysGameOfLife.genruntimeconfig.cache
