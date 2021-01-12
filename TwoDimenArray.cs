@@ -102,6 +102,282 @@ namespace ConwaysGameOfLife
             }
         }
 
+        public int[,] transformArray(int[,] firstArr)
+        {
+            /*
+             * alive neighbour <= 1 OR >= 4 then dies
+             * alive neighbour == 2 or 3 alive
+             * 
+             */
+           
+           // int counter = 0; //the game will repeat for 20 steps
+
+            int n = firstArr.GetLength(0); //gets the length of the row (which is the length of colns since it's a square)
+
+            if (n == 15)
+            {
+                int[,] newArr = new int[15, 15]    {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                                    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                                    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                                    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                                    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                                    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                                    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                                    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                                    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                                    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                                    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                                    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                                    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                                    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                                                    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
+
+
+                //initialise newArr to completely blank
+
+                for (int row = 0; row < firstArr.GetLength(0); row++)
+                {
+                    for (int coln = 0; coln < firstArr.GetLength(1); coln++)
+                    {
+
+
+                        //the corners
+
+                        if (row == 0 && coln == 0) //top left
+                        {
+
+                            //have only three neighbours
+
+                            int aliveNeighbours = 0;
+
+
+                            //check neighbour right
+                            if (firstArr[row, coln + 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour down
+                            if (firstArr[row + 1, coln] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour diag down right SE
+                            if (firstArr[row + 1, coln + 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            if (aliveNeighbours <= 1)
+                            {
+                                //current cell must die ie change to zero in new array
+                                newArr[row, coln] = 0;
+                            }
+
+                            else if (aliveNeighbours == 2 || aliveNeighbours == 3)
+                            {
+                                newArr[row, coln] = 1;
+                            }
+
+
+                        }
+
+                        else if (row == 0 && coln == n - 1) //top right
+                        {
+                            //have only three neighbours
+
+                            int aliveNeighbours = 0;
+
+
+                            //check neighbour left
+                            if (firstArr[row, coln - 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour down
+                            if (firstArr[row + 1, coln] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour diag down left SW
+                            if (firstArr[row + 1, coln - 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            if (aliveNeighbours <= 1)
+                            {
+                                //current cell must die ie change to zero in new array
+                                newArr[row, coln] = 0;
+                            }
+
+                            else if (aliveNeighbours == 2 || aliveNeighbours == 3)
+                            {
+                                newArr[row, coln] = 1;
+                            }
+                        }
+
+                        else if (row == n - 1 && coln == 0) //bottom left
+                        {
+                            //have only three neighbours
+
+                            int aliveNeighbours = 0;
+
+
+                            //check neighbour right
+                            if (firstArr[row, coln + 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour up
+                            if (firstArr[row - 1, coln] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour diag up right NE
+                            if (firstArr[row - 1, coln + 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            if (aliveNeighbours <= 1)
+                            {
+                                //current cell must die ie change to zero in new array
+                                newArr[row, coln] = 0;
+                            }
+
+                            else if (aliveNeighbours == 2 || aliveNeighbours == 3)
+                            {
+                                newArr[row, coln] = 1;
+                            }
+                        }
+
+                        else if (row == n - 1 && coln == n - 1) //bottom right
+                        {
+                            //have only three neighbours
+
+                            int aliveNeighbours = 0;
+
+
+                            //check neighbour left
+                            if (firstArr[row, coln - 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour up
+                            if (firstArr[row - 1, coln] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour diag up left NW
+                            if (firstArr[row - 1, coln - 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            if (aliveNeighbours <= 1)
+                            {
+                                //current cell must die ie change to zero in new array
+                                newArr[row, coln] = 0;
+                            }
+
+                            else if (aliveNeighbours == 2 || aliveNeighbours == 3)
+                            {
+                                newArr[row, coln] = 1;
+                            }
+                        }
+
+
+
+                        //edges
+
+                        else if (row == 0) //top
+                        {
+
+                        }
+
+                        else if (coln == n - 1) //right
+                        {
+
+
+                        }
+
+                        else if (row == n - 1) //bottom
+                        {
+
+                        }
+
+                        else if (coln == 0) //left
+                        {
+
+                        }
+
+                        else      //centre pieces with eight neighbours
+                        {
+
+                        }
+
+
+                    }
+
+                }    
+
+            }
+
+                
+                
+        
+
+            else if (n==20)
+            {
+                int[,] newArr = int[20, 20];
+                for (int row = 0; row < firstArr.GetLength(0); row++)
+                {
+                    for (int coln = 0; coln < firstArr.GetLength(1); coln++)
+                    {
+
+                    }
+
+                }
+            }
+            
+            else //default of 10
+            {
+                int[,] newArr = int[10, 10];
+                for (int row = 0; row < firstArr.GetLength(0); row++)
+                {
+                    for (int coln = 0; coln < firstArr.GetLength(1); coln++)
+                    {
+
+                    }
+
+                }
+            }
+
+            
+
+
+                 
+        }
         
     }
 }

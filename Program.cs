@@ -16,6 +16,18 @@ namespace ConwaysGameOfLife
 
             mainArray.printArray(arr);
 
+            //need to send the first/current array to transformarray method, print then redo until counter reached
+
+           int counter = 0;
+
+            while (counter <= 20)
+            {
+                int[,] newArr = mainArray.transformArray(arr);
+                mainArray.printArray(newArr);
+                Console.Clear();
+                counter += 1;
+            }
+
         }
     }
 }
