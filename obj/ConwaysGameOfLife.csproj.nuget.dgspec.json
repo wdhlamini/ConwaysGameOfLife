@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\wandile\\Desktop\\OptiSolutions AppFactory\\ConwaysGameOfLife\\ConwaysGameOfLife\\ConwaysGameOfLife.csproj": {}
+    "C:\\Users\\wandile\\Desktop\\ConwaysGameOfLife\\ConwaysGameOfLife.csproj": {}
   },
   "projects": {
-    "C:\\Users\\wandile\\Desktop\\OptiSolutions AppFactory\\ConwaysGameOfLife\\ConwaysGameOfLife\\ConwaysGameOfLife.csproj": {
+    "C:\\Users\\wandile\\Desktop\\ConwaysGameOfLife\\ConwaysGameOfLife.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\wandile\\Desktop\\OptiSolutions AppFactory\\ConwaysGameOfLife\\ConwaysGameOfLife\\ConwaysGameOfLife.csproj",
+        "projectUniqueName": "C:\\Users\\wandile\\Desktop\\ConwaysGameOfLife\\ConwaysGameOfLife.csproj",
         "projectName": "ConwaysGameOfLife",
-        "projectPath": "C:\\Users\\wandile\\Desktop\\OptiSolutions AppFactory\\ConwaysGameOfLife\\ConwaysGameOfLife\\ConwaysGameOfLife.csproj",
+        "projectPath": "C:\\Users\\wandile\\Desktop\\ConwaysGameOfLife\\ConwaysGameOfLife.csproj",
         "packagesPath": "C:\\Users\\wandile\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\wandile\\Desktop\\OptiSolutions AppFactory\\ConwaysGameOfLife\\ConwaysGameOfLife\\obj\\",
+        "outputPath": "C:\\Users\\wandile\\Desktop\\ConwaysGameOfLife\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

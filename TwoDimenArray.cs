@@ -9,7 +9,7 @@ namespace ConwaysGameOfLife
         public int[,] InitialState(int n)
         {
             //creates the initial state of the game board
-            
+            //1 is alive 
 
             if (n == 10)
             {
@@ -24,6 +24,7 @@ namespace ConwaysGameOfLife
                 }
 
                 return bigArray;
+                //printArray(bigArray);
             }
 
             if (n == 15)
@@ -40,6 +41,7 @@ namespace ConwaysGameOfLife
                 }
 
                 return bigArray;
+                //printArray(bigArray);
             }
 
             if (n == 20)
@@ -56,11 +58,12 @@ namespace ConwaysGameOfLife
                 }
 
                 return bigArray;
+                //printArray(bigArray);
             }
 
-            else if (n != 10 || n!= 15 || n != 20 )
+            else 
 
-            {
+            { //defaults to 10x10 with an L shape
                 int[,] bigArray2 = new int[10, 10] {{1,0,0,0,0,0,0,0,0,0},
                                                     {1,0,0,0,0,0,0,0,0,0},
                                                     {1,0,0,0,0,0,0,0,0,0},
@@ -73,36 +76,10 @@ namespace ConwaysGameOfLife
                                                     {1,1,1,1,1,1,1,1,1,1}};
 
                 return bigArray2;
+                //printArray(bigArray2);
             }
-            //populate 
-            //1 is alive cell, 0 is dead cell
 
-            /* for (int row = 0; row < n; row++)
-             {
-                 for (int coln = 0; row < n; coln++)
-                 {
-                     //making an L means left and bottom must be filled with ones
-                     if (coln == 0) //left
-                     {
-                         bigArray[row, coln] = 1;
-                     }
-
-                     else if (row == n - 1) //bottom
-                     {
-                         bigArray[row, coln] = 1;
-                     }
-
-                     else
-                     {
-                         bigArray[row, coln] = 0;
-                     }
-                 }
-             }
-
-
-             return bigArray;*/
-
-
+           
         }
 
         public void printArray(int[,] arr)
@@ -111,7 +88,7 @@ namespace ConwaysGameOfLife
             {
                 for (int coln = 0; coln < arr.GetLength(1); coln++)
                 {
-                    if (coln == arr.GetLength(1) - 1)
+                    if (coln == arr.GetLength(1) - 1) //if at the end of the sub array ie row, make new line
                     {
                         Console.WriteLine(arr[row, coln]);
                     }
@@ -125,6 +102,6 @@ namespace ConwaysGameOfLife
             }
         }
 
-
+        
     }
 }
