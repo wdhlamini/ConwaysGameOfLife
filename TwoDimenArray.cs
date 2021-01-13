@@ -114,9 +114,9 @@ namespace ConwaysGameOfLife
 
             int n = firstArr.GetLength(0); //gets the length of the row (which is the length of colns since it's a square)
 
-            if (n == 15)
+            if (n == 5) //was n == 15
             {
-                int[,] newArr = new int[15, 15]    {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                /*int[,] newArr = new int[15, 15]    {{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
                                                     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
                                                     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
                                                     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -130,7 +130,15 @@ namespace ConwaysGameOfLife
                                                     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
                                                     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
                                                     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-                                                    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};
+                                                    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}};*/
+
+                int[,] newArr = new int[5, 5]; /*{
+                        {0,0,0,0,0},
+                        {0,0,0,0,0},
+                        {0,0,0,0,0},
+                        {0,0,0,0,0},
+                        {0,0,0,0,0},
+                };*/
 
 
                 //initialise newArr to completely blank
@@ -141,7 +149,7 @@ namespace ConwaysGameOfLife
                     {
 
 
-                        //the corners
+                        #region the corners
 
                         if (row == 0 && coln == 0) //top left
                         {
@@ -306,50 +314,53 @@ namespace ConwaysGameOfLife
                             }
                         }
 
+                        #endregion
 
-
-                        //edges
+                        #region edges
 
                         else if (row == 0) //top
                         {
-
+                            continue;
                         }
 
                         else if (coln == n - 1) //right
                         {
-
+                            continue;
 
                         }
 
                         else if (row == n - 1) //bottom
                         {
-
+                            continue;
                         }
 
                         else if (coln == 0) //left
                         {
-
+                            continue;
                         }
+
+                        #endregion
 
                         else      //centre pieces with eight neighbours
                         {
-
+                            continue;
                         }
 
 
                     }
 
-                }    
+                }
 
+                return newArr;
             }
 
-                
-                
+
+            
         
 
             else if (n==20)
             {
-                int[,] newArr = int[20, 20];
+                int[,] newArr = new int[20, 20];
                 for (int row = 0; row < firstArr.GetLength(0); row++)
                 {
                     for (int coln = 0; coln < firstArr.GetLength(1); coln++)
@@ -358,11 +369,13 @@ namespace ConwaysGameOfLife
                     }
 
                 }
+
+                return newArr;
             }
             
             else //default of 10
             {
-                int[,] newArr = int[10, 10];
+                int[,] newArr = new int[10, 10];
                 for (int row = 0; row < firstArr.GetLength(0); row++)
                 {
                     for (int coln = 0; coln < firstArr.GetLength(1); coln++)
@@ -371,6 +384,8 @@ namespace ConwaysGameOfLife
                     }
 
                 }
+
+                return newArr;
             }
 
             
