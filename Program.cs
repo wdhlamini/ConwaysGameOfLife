@@ -18,20 +18,24 @@ namespace ConwaysGameOfLife
                 {1,1,0,1,1},
                 {1,0,0,1,1},
                 {0,0,0,0,0},
-                {0,0,0,0,0},
-                {1,0,0,0,1},
+                {0,0,0,0,1},
+                {1,0,1,0,1},
             };
 
             mainArray.printArray(tempArray); //was arr as parameter
 
+            Console.WriteLine(); //temporary remove
+
             //need to send the first/current array to transformarray method, print then redo until counter reached
 
-           int counter = 0;
+            int counter = 0;
+
+            int[,] newArr = mainArray.transformArray(tempArray); //was arr as parameter
 
             while (counter <= 3)
             {
-                int[,] newArr = mainArray.transformArray(tempArray); //was arr as parameter
                 mainArray.printArray(newArr);
+                newArr = mainArray.transformArray(newArr);
                 Console.WriteLine();
                 //Console.Clear();
                 counter += 1;
