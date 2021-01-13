@@ -114,11 +114,11 @@ namespace ConwaysGameOfLife
 
             int n = firstArr.GetLength(0); //gets the length of the row (which is the length of colns since it's a square)
 
-            if (n == 5) //was n == 15 *****
+            if (n == 15) 
             {
-                //int[,] newArr = new int[15, 15];  *******
+                int[,] newArr = new int[15, 15]; 
 
-                int[,] newArr = new int[5, 5]; 
+                //int[,] newArr = new int[5, 5]; 
 
                 //initialise newArr to completely blank
 
@@ -518,6 +518,7 @@ namespace ConwaysGameOfLife
 
                         #endregion
 
+                        #region centre with eight neighbours 
                         else      //centre pieces with eight neighbours
                         {
                             int aliveNeighbours = 0;
@@ -591,9 +592,12 @@ namespace ConwaysGameOfLife
                             {
                                 newArr[row, coln] = 1;
                             }
+
+                            
+
                         }
 
-
+                        #endregion
                     }
 
                 }
@@ -612,7 +616,476 @@ namespace ConwaysGameOfLife
                 {
                     for (int coln = 0; coln < firstArr.GetLength(1); coln++)
                     {
+                        #region the corners
 
+                        if (row == 0 && coln == 0) //top left
+                        {
+
+                            //have only three neighbours
+
+                            int aliveNeighbours = 0;
+
+
+                            //check neighbour right
+                            if (firstArr[row, coln + 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour down
+                            if (firstArr[row + 1, coln] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour diag down right SE
+                            if (firstArr[row + 1, coln + 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            if (aliveNeighbours <= 1)
+                            {
+                                //current cell must die ie change to zero in new array
+                                newArr[row, coln] = 0;
+                            }
+
+                            else if (aliveNeighbours == 2 || aliveNeighbours == 3)
+                            {
+                                newArr[row, coln] = 1;
+                            }
+
+
+                        }
+
+                        else if (row == 0 && coln == n - 1) //top right
+                        {
+                            //have only three neighbours
+
+                            int aliveNeighbours = 0;
+
+
+                            //check neighbour left
+                            if (firstArr[row, coln - 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour down
+                            if (firstArr[row + 1, coln] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour diag down left SW
+                            if (firstArr[row + 1, coln - 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            if (aliveNeighbours <= 1)
+                            {
+                                //current cell must die ie change to zero in new array
+                                newArr[row, coln] = 0;
+                            }
+
+                            else if (aliveNeighbours == 2 || aliveNeighbours == 3)
+                            {
+                                newArr[row, coln] = 1;
+                            }
+                        }
+
+                        else if (row == n - 1 && coln == 0) //bottom left
+                        {
+                            //have only three neighbours
+
+                            int aliveNeighbours = 0;
+
+
+                            //check neighbour right
+                            if (firstArr[row, coln + 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour up
+                            if (firstArr[row - 1, coln] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour diag up right NE
+                            if (firstArr[row - 1, coln + 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            if (aliveNeighbours <= 1)
+                            {
+                                //current cell must die ie change to zero in new array
+                                newArr[row, coln] = 0;
+                            }
+
+                            else if (aliveNeighbours == 2 || aliveNeighbours == 3)
+                            {
+                                newArr[row, coln] = 1;
+                            }
+                        }
+
+                        else if (row == n - 1 && coln == n - 1) //bottom right
+                        {
+                            //have only three neighbours
+
+                            int aliveNeighbours = 0;
+
+
+                            //check neighbour left
+                            if (firstArr[row, coln - 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour up
+                            if (firstArr[row - 1, coln] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour diag up left NW
+                            if (firstArr[row - 1, coln - 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            if (aliveNeighbours <= 1)
+                            {
+                                //current cell must die ie change to zero in new array
+                                newArr[row, coln] = 0;
+                            }
+
+                            else if (aliveNeighbours == 2 || aliveNeighbours == 3)
+                            {
+                                newArr[row, coln] = 1;
+                            }
+                        }
+
+                        #endregion
+
+                        #region edges
+
+                        else if (row == 0) //top edge
+                        {
+                            int aliveNeighbours = 0;
+
+
+                            //check neighbour right E
+                            if (firstArr[row, coln + 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour down
+                            if (firstArr[row + 1, coln] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour diag down right SE
+                            if (firstArr[row + 1, coln + 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour left
+                            if (firstArr[row, coln - 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour diag down left SW
+                            if (firstArr[row + 1, coln - 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //alive neighbour <= 1 OR >= 4 then dies
+                            //alive neighbour == 2 or 3 alive
+
+                            if (aliveNeighbours <= 1 || aliveNeighbours >= 4)
+                            {
+                                //current cell must die ie change to zero in new array
+                                newArr[row, coln] = 0;
+                            }
+
+                            else if (aliveNeighbours == 2 || aliveNeighbours == 3)
+                            {
+                                newArr[row, coln] = 1;
+                            }
+                        }
+
+                        else if (coln == n - 1) //right edge
+                        {
+
+                            int aliveNeighbours = 0;
+
+                            //check neighbour W left
+                            if (firstArr[row, coln - 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour down S
+                            if (firstArr[row + 1, coln] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour diag down left SW
+                            if (firstArr[row + 1, coln - 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour up
+                            if (firstArr[row - 1, coln] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour diag down left SW
+                            if (firstArr[row + 1, coln - 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //alive neighbour <= 1 OR >= 4 then dies
+                            //alive neighbour == 2 or 3 alive
+
+                            if (aliveNeighbours <= 1 || aliveNeighbours >= 4)
+                            {
+                                //current cell must die ie change to zero in new array
+                                newArr[row, coln] = 0;
+                            }
+
+                            else if (aliveNeighbours == 2 || aliveNeighbours == 3)
+                            {
+                                newArr[row, coln] = 1;
+                            }
+
+                        }
+
+                        else if (row == n - 1) //bottom edge
+                        {
+                            int aliveNeighbours = 0;
+
+                            //check neighbour W left
+                            if (firstArr[row, coln - 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour up N
+                            if (firstArr[row - 1, coln] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour diag up left NW
+                            if (firstArr[row - 1, coln - 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour E right
+                            if (firstArr[row, coln + 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour diag up right NE
+                            if (firstArr[row - 1, coln + 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //alive neighbour <= 1 OR >= 4 then dies
+                            //alive neighbour == 2 or 3 alive
+
+                            if (aliveNeighbours <= 1 || aliveNeighbours >= 4)
+                            {
+                                //current cell must die ie change to zero in new array
+                                newArr[row, coln] = 0;
+                            }
+
+                            else if (aliveNeighbours == 2 || aliveNeighbours == 3)
+                            {
+                                newArr[row, coln] = 1;
+                            }
+                        }
+
+                        else if (coln == 0) //left edge 
+                        {
+                            int aliveNeighbours = 0;
+
+                            //check neighbour E right
+                            if (firstArr[row, coln + 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour down S
+                            if (firstArr[row + 1, coln] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour diag down right SE
+                            if (firstArr[row + 1, coln + 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour up N
+                            if (firstArr[row - 1, coln] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour diag up right NE
+                            if (firstArr[row - 1, coln + 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //alive neighbour <= 1 OR >= 4 then dies
+                            //alive neighbour == 2 or 3 alive
+
+                            if (aliveNeighbours <= 1 || aliveNeighbours >= 4)
+                            {
+                                //current cell must die ie change to zero in new array
+                                newArr[row, coln] = 0;
+                            }
+
+                            else if (aliveNeighbours == 2 || aliveNeighbours == 3)
+                            {
+                                newArr[row, coln] = 1;
+                            }
+                        }
+
+                        #endregion
+
+                        #region centre with eight neighbours 
+                        else      //centre pieces with eight neighbours
+                        {
+                            int aliveNeighbours = 0;
+
+                            //check neighbour up N
+                            if (firstArr[row - 1, coln] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour NE
+                            if (firstArr[row - 1, coln + 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour right E
+                            if (firstArr[row, coln + 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour SE
+                            if (firstArr[row + 1, coln + 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour down S
+                            if (firstArr[row + 1, coln] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour SW
+                            if (firstArr[row + 1, coln - 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour left W
+                            if (firstArr[row, coln - 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour NW
+                            if (firstArr[row - 1, coln - 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //alive neighbour <= 1 OR >= 4 then dies
+                            //alive neighbour == 2 or 3 alive
+
+                            if (aliveNeighbours <= 1 || aliveNeighbours >= 4)
+                            {
+                                //current cell must die ie change to zero in new array
+                                newArr[row, coln] = 0;
+                            }
+
+                            else if (aliveNeighbours == 2 || aliveNeighbours == 3)
+                            {
+                                newArr[row, coln] = 1;
+                            }
+
+
+
+                        }
+
+                        #endregion
                     }
 
                 }
@@ -627,7 +1100,476 @@ namespace ConwaysGameOfLife
                 {
                     for (int coln = 0; coln < firstArr.GetLength(1); coln++)
                     {
+                        #region the corners
 
+                        if (row == 0 && coln == 0) //top left
+                        {
+
+                            //have only three neighbours
+
+                            int aliveNeighbours = 0;
+
+
+                            //check neighbour right
+                            if (firstArr[row, coln + 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour down
+                            if (firstArr[row + 1, coln] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour diag down right SE
+                            if (firstArr[row + 1, coln + 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            if (aliveNeighbours <= 1)
+                            {
+                                //current cell must die ie change to zero in new array
+                                newArr[row, coln] = 0;
+                            }
+
+                            else if (aliveNeighbours == 2 || aliveNeighbours == 3)
+                            {
+                                newArr[row, coln] = 1;
+                            }
+
+
+                        }
+
+                        else if (row == 0 && coln == n - 1) //top right
+                        {
+                            //have only three neighbours
+
+                            int aliveNeighbours = 0;
+
+
+                            //check neighbour left
+                            if (firstArr[row, coln - 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour down
+                            if (firstArr[row + 1, coln] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour diag down left SW
+                            if (firstArr[row + 1, coln - 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            if (aliveNeighbours <= 1)
+                            {
+                                //current cell must die ie change to zero in new array
+                                newArr[row, coln] = 0;
+                            }
+
+                            else if (aliveNeighbours == 2 || aliveNeighbours == 3)
+                            {
+                                newArr[row, coln] = 1;
+                            }
+                        }
+
+                        else if (row == n - 1 && coln == 0) //bottom left
+                        {
+                            //have only three neighbours
+
+                            int aliveNeighbours = 0;
+
+
+                            //check neighbour right
+                            if (firstArr[row, coln + 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour up
+                            if (firstArr[row - 1, coln] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour diag up right NE
+                            if (firstArr[row - 1, coln + 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            if (aliveNeighbours <= 1)
+                            {
+                                //current cell must die ie change to zero in new array
+                                newArr[row, coln] = 0;
+                            }
+
+                            else if (aliveNeighbours == 2 || aliveNeighbours == 3)
+                            {
+                                newArr[row, coln] = 1;
+                            }
+                        }
+
+                        else if (row == n - 1 && coln == n - 1) //bottom right
+                        {
+                            //have only three neighbours
+
+                            int aliveNeighbours = 0;
+
+
+                            //check neighbour left
+                            if (firstArr[row, coln - 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour up
+                            if (firstArr[row - 1, coln] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour diag up left NW
+                            if (firstArr[row - 1, coln - 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            if (aliveNeighbours <= 1)
+                            {
+                                //current cell must die ie change to zero in new array
+                                newArr[row, coln] = 0;
+                            }
+
+                            else if (aliveNeighbours == 2 || aliveNeighbours == 3)
+                            {
+                                newArr[row, coln] = 1;
+                            }
+                        }
+
+                        #endregion
+
+                        #region edges
+
+                        else if (row == 0) //top edge
+                        {
+                            int aliveNeighbours = 0;
+
+
+                            //check neighbour right E
+                            if (firstArr[row, coln + 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour down
+                            if (firstArr[row + 1, coln] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour diag down right SE
+                            if (firstArr[row + 1, coln + 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour left
+                            if (firstArr[row, coln - 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour diag down left SW
+                            if (firstArr[row + 1, coln - 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //alive neighbour <= 1 OR >= 4 then dies
+                            //alive neighbour == 2 or 3 alive
+
+                            if (aliveNeighbours <= 1 || aliveNeighbours >= 4)
+                            {
+                                //current cell must die ie change to zero in new array
+                                newArr[row, coln] = 0;
+                            }
+
+                            else if (aliveNeighbours == 2 || aliveNeighbours == 3)
+                            {
+                                newArr[row, coln] = 1;
+                            }
+                        }
+
+                        else if (coln == n - 1) //right edge
+                        {
+
+                            int aliveNeighbours = 0;
+
+                            //check neighbour W left
+                            if (firstArr[row, coln - 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour down S
+                            if (firstArr[row + 1, coln] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour diag down left SW
+                            if (firstArr[row + 1, coln - 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour up
+                            if (firstArr[row - 1, coln] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour diag down left SW
+                            if (firstArr[row + 1, coln - 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //alive neighbour <= 1 OR >= 4 then dies
+                            //alive neighbour == 2 or 3 alive
+
+                            if (aliveNeighbours <= 1 || aliveNeighbours >= 4)
+                            {
+                                //current cell must die ie change to zero in new array
+                                newArr[row, coln] = 0;
+                            }
+
+                            else if (aliveNeighbours == 2 || aliveNeighbours == 3)
+                            {
+                                newArr[row, coln] = 1;
+                            }
+
+                        }
+
+                        else if (row == n - 1) //bottom edge
+                        {
+                            int aliveNeighbours = 0;
+
+                            //check neighbour W left
+                            if (firstArr[row, coln - 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour up N
+                            if (firstArr[row - 1, coln] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour diag up left NW
+                            if (firstArr[row - 1, coln - 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour E right
+                            if (firstArr[row, coln + 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour diag up right NE
+                            if (firstArr[row - 1, coln + 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //alive neighbour <= 1 OR >= 4 then dies
+                            //alive neighbour == 2 or 3 alive
+
+                            if (aliveNeighbours <= 1 || aliveNeighbours >= 4)
+                            {
+                                //current cell must die ie change to zero in new array
+                                newArr[row, coln] = 0;
+                            }
+
+                            else if (aliveNeighbours == 2 || aliveNeighbours == 3)
+                            {
+                                newArr[row, coln] = 1;
+                            }
+                        }
+
+                        else if (coln == 0) //left edge 
+                        {
+                            int aliveNeighbours = 0;
+
+                            //check neighbour E right
+                            if (firstArr[row, coln + 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour down S
+                            if (firstArr[row + 1, coln] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour diag down right SE
+                            if (firstArr[row + 1, coln + 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //check neighbour up N
+                            if (firstArr[row - 1, coln] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour diag up right NE
+                            if (firstArr[row - 1, coln + 1] == 1)
+                            {
+                                aliveNeighbours += 1;
+
+                            }
+
+                            //alive neighbour <= 1 OR >= 4 then dies
+                            //alive neighbour == 2 or 3 alive
+
+                            if (aliveNeighbours <= 1 || aliveNeighbours >= 4)
+                            {
+                                //current cell must die ie change to zero in new array
+                                newArr[row, coln] = 0;
+                            }
+
+                            else if (aliveNeighbours == 2 || aliveNeighbours == 3)
+                            {
+                                newArr[row, coln] = 1;
+                            }
+                        }
+
+                        #endregion
+
+                        #region centre with eight neighbours 
+                        else      //centre pieces with eight neighbours
+                        {
+                            int aliveNeighbours = 0;
+
+                            //check neighbour up N
+                            if (firstArr[row - 1, coln] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour NE
+                            if (firstArr[row - 1, coln + 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour right E
+                            if (firstArr[row, coln + 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour SE
+                            if (firstArr[row + 1, coln + 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour down S
+                            if (firstArr[row + 1, coln] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour SW
+                            if (firstArr[row + 1, coln - 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour left W
+                            if (firstArr[row, coln - 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour NW
+                            if (firstArr[row - 1, coln - 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //alive neighbour <= 1 OR >= 4 then dies
+                            //alive neighbour == 2 or 3 alive
+
+                            if (aliveNeighbours <= 1 || aliveNeighbours >= 4)
+                            {
+                                //current cell must die ie change to zero in new array
+                                newArr[row, coln] = 0;
+                            }
+
+                            else if (aliveNeighbours == 2 || aliveNeighbours == 3)
+                            {
+                                newArr[row, coln] = 1;
+                            }
+
+
+
+                        }
+
+                        #endregion
                     }
 
                 }
