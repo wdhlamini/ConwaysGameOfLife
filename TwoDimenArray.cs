@@ -520,7 +520,77 @@ namespace ConwaysGameOfLife
 
                         else      //centre pieces with eight neighbours
                         {
-                            continue;
+                            int aliveNeighbours = 0;
+
+                            //check neighbour up N
+                            if (firstArr[row - 1, coln] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour NE
+                            if (firstArr[row - 1, coln + 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour right E
+                            if (firstArr[row, coln + 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour SE
+                            if (firstArr[row + 1, coln +1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour down S
+                            if (firstArr[row + 1, coln] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour SW
+                            if (firstArr[row + 1, coln - 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour left W
+                            if (firstArr[row, coln - 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //check neighbour NW
+                            if (firstArr[row - 1, coln - 1] == 1)
+                            {
+                                aliveNeighbours = aliveNeighbours + 1;
+
+                            }
+
+                            //alive neighbour <= 1 OR >= 4 then dies
+                            //alive neighbour == 2 or 3 alive
+
+                            if (aliveNeighbours <= 1 || aliveNeighbours >= 4)
+                            {
+                                //current cell must die ie change to zero in new array
+                                newArr[row, coln] = 0;
+                            }
+
+                            else if (aliveNeighbours == 2 || aliveNeighbours == 3)
+                            {
+                                newArr[row, coln] = 1;
+                            }
                         }
 
 
