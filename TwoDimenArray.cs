@@ -8,78 +8,91 @@ namespace ConwaysGameOfLife
     {
         public int[,] InitialState(int n)
         {
+            Random rnd = new Random();
+            int[,] bigArray = new int[n, n];
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    bigArray[i, j] = rnd.Next(0, 2);
+                }
+            }
+
+            return bigArray;
+
+            #region old code
             //creates the initial state of the game board
             //1 is alive 
 
-            if (n == 10)
-            {
-                Random rnd = new Random();
-                int[,] bigArray = new int[10, 10];
-                for (int i = 0; i < 10; i++)
-                {
-                    for (int j = 0; j < 10; j++)
-                    {
-                        bigArray[i, j] = rnd.Next(0, 2);
-                    }
-                }
+            /* if (n == 10)
+             {
+                 Random rnd = new Random();
+                 int[,] bigArray = new int[10, 10];
+                 for (int i = 0; i < 10; i++)
+                 {
+                     for (int j = 0; j < 10; j++)
+                     {
+                         bigArray[i, j] = rnd.Next(0, 2);
+                     }
+                 }
 
-                return bigArray;
-                //printArray(bigArray);
-            }
+                 return bigArray;
+                 //printArray(bigArray);
+             }
 
-            if (n == 15)
-            {
-                Random rnd = new Random();
-                int[,] bigArray = new int[15, 15];
-                for (int i = 0; i < 15; i++)
-                {
-                    for (int j = 0; j < 15; j++)
-                    {
-                        bigArray[i, j] = rnd.Next(0, 2);
-                        
-                    }
-                }
+             if (n == 15)
+             {
+                 Random rnd = new Random();
+                 int[,] bigArray = new int[15, 15];
+                 for (int i = 0; i < 15; i++)
+                 {
+                     for (int j = 0; j < 15; j++)
+                     {
+                         bigArray[i, j] = rnd.Next(0, 2);
 
-                return bigArray;
-                //printArray(bigArray);
-            }
+                     }
+                 }
 
-            if (n == 20)
-            {
-                Random rnd = new Random();
-                int[,] bigArray = new int[20, 20];
-                for (int i = 0; i < 20; i++)
-                {
-                    for (int j = 0; j < 20; j++)
-                    {
-                        bigArray[i, j] = rnd.Next(0, 2);
+                 return bigArray;
+                 //printArray(bigArray);
+             }
 
-                    }
-                }
+             if (n == 20)
+             {
+                 Random rnd = new Random();
+                 int[,] bigArray = new int[20, 20];
+                 for (int i = 0; i < 20; i++)
+                 {
+                     for (int j = 0; j < 20; j++)
+                     {
+                         bigArray[i, j] = rnd.Next(0, 2);
 
-                return bigArray;
-                //printArray(bigArray);
-            }
+                     }
+                 }
 
-            else 
+                 return bigArray;
+                 //printArray(bigArray);
+             }
 
-            { //defaults to 10x10 with an L shape
-                int[,] bigArray2 = new int[10, 10] {{1,0,0,0,0,0,0,0,0,0},
-                                                    {1,0,0,0,0,0,0,0,0,0},
-                                                    {1,0,0,0,0,0,0,0,0,0},
-                                                    {1,0,0,0,0,0,0,0,0,0},
-                                                    {1,0,0,0,0,0,0,0,0,0},
-                                                    {1,0,0,0,0,0,0,0,0,0},
-                                                    {1,0,0,0,0,0,0,0,0,0},
-                                                    {1,0,0,0,0,0,0,0,0,0},
-                                                    {1,0,0,0,0,0,0,0,0,0},
-                                                    {1,1,1,1,1,1,1,1,1,1}};
+             else 
 
-                return bigArray2;
-                //printArray(bigArray2);
-            }
+             { //defaults to 10x10 with an L shape
+                 int[,] bigArray2 = new int[10, 10] {{1,0,0,0,0,0,0,0,0,0},
+                                                     {1,0,0,0,0,0,0,0,0,0},
+                                                     {1,0,0,0,0,0,0,0,0,0},
+                                                     {1,0,0,0,0,0,0,0,0,0},
+                                                     {1,0,0,0,0,0,0,0,0,0},
+                                                     {1,0,0,0,0,0,0,0,0,0},
+                                                     {1,0,0,0,0,0,0,0,0,0},
+                                                     {1,0,0,0,0,0,0,0,0,0},
+                                                     {1,0,0,0,0,0,0,0,0,0},
+                                                     {1,1,1,1,1,1,1,1,1,1}};
 
-           
+                 return bigArray2;
+                 //printArray(bigArray2);
+             } */
+            #endregion
+
         }
 
         public void printArray(int[,] arr)
@@ -114,7 +127,8 @@ namespace ConwaysGameOfLife
 
             int n = firstArr.GetLength(0); //gets the length of the row (which is the length of colns since it's a square)
 
-            if (n == 15) 
+            #region old code
+            /*if (n == 15) 
             {
                 int[,] newArr = new int[15, 15]; 
 
@@ -329,7 +343,7 @@ namespace ConwaysGameOfLife
                                 aliveNeighbours = aliveNeighbours + 1;
 
                             }
-                            
+
                             //check neighbour diag down left SW
                             if (firstArr[row + 1, coln - 1] == 1)
                             {
@@ -593,7 +607,7 @@ namespace ConwaysGameOfLife
                                 newArr[row, coln] = 1;
                             }
 
-                            
+
 
                         }
 
@@ -606,8 +620,8 @@ namespace ConwaysGameOfLife
             }
 
 
-            
-        
+
+
 
             else if (n==20)
             {
@@ -1091,11 +1105,10 @@ namespace ConwaysGameOfLife
                 }
 
                 return newArr;
-            }
-            
-            else //default of 10
-            {
-                int[,] newArr = new int[10, 10];
+            }*/
+            #endregion
+
+            int[,] newArr = new int[n, n];
                 for (int row = 0; row < firstArr.GetLength(0); row++)
                 {
                     for (int coln = 0; coln < firstArr.GetLength(1); coln++)
@@ -1575,7 +1588,7 @@ namespace ConwaysGameOfLife
                 }
 
                 return newArr;
-            }
+            
 
             
 

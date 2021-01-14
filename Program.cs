@@ -6,9 +6,13 @@ namespace ConwaysGameOfLife
     {
         static void Main(string[] args)
         {
-            Console.Write("Select square board size of 10 or 15 or 20: ");
-            
+            //Console.Write("Select square board size of 10 or 15 or 20: ");
+
+            Console.Write("Select a square board size: ");
+
             int n = int.Parse(Console.ReadLine());
+
+            Console.WriteLine();
 
             TwoDimenArray mainArray = new TwoDimenArray();
 
@@ -23,19 +27,18 @@ namespace ConwaysGameOfLife
             };*/
 
             Console.WriteLine("Initial state:");
-            mainArray.printArray(arr); //was arr as parameter
+            mainArray.printArray(arr); 
 
-            Console.WriteLine(); //temporary remove
+            Console.WriteLine(); 
 
             //need to send the first/current array to transformarray method, print then redo until counter reached
 
-            int counter = 0;
+            int counter = 1;
 
             
-            int[,] newArr = mainArray.transformArray(arr); //was arr as parameter
-            
+            int[,] newArr = mainArray.transformArray(arr); 
 
-            while (counter <= 3)
+            while (counter <= 3) //can make any length of iterations
             {
                 Console.WriteLine("Iteration " + counter + ": ");
                 mainArray.printArray(newArr);
