@@ -2,7 +2,7 @@
 
 namespace ConwaysGameOfLife
 {
-    public class Program
+    class Program
     {
         public static void Main(string[] args)
         {
@@ -12,31 +12,35 @@ namespace ConwaysGameOfLife
 
             int n = int.Parse(Console.ReadLine());
 
-            Console.WriteLine();
+            //Console.WriteLine();
 
             TwoDimenArray mainArray = new TwoDimenArray();
 
             int[,] arr = mainArray.InitialState(n);
 
-            /*int[,] tempArray = new int[5,5] {
+            
+            /*int[,] tempArray = new int[5, 5] {
                 {1,1,0,1,1},
                 {1,0,0,1,1},
+                {0,0,1,0,0},
                 {0,0,0,0,0},
-                {0,0,0,0,1},
                 {1,0,1,0,1},
             };*/
 
             Console.WriteLine("Initial state:");
             mainArray.printArray(arr); 
 
+            //mainArray.printArray(tempArray);
+            
             Console.WriteLine(); 
 
             //need to send the first/current array to transformarray method, print then redo until counter reached
 
             int counter = 1;
 
-            
+
             int[,] newArr = mainArray.transformArray(arr); 
+            //int[,] newArr = mainArray.transformArray(tempArray);
 
             while (counter <= 3) //can make any length of iterations
             {
