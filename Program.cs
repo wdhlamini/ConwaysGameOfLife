@@ -2,9 +2,9 @@
 
 namespace ConwaysGameOfLife
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             //Console.Write("Select square board size of 10 or 15 or 20: ");
 

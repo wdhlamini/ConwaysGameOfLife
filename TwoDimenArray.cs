@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConwaysGameOfLife
 {
-    class TwoDimenArray
+    public class TwoDimenArray
     {
         public int[,] InitialState(int n)
         {
@@ -95,7 +95,7 @@ namespace ConwaysGameOfLife
 
         }
 
-        public void printArray(int[,] arr)
+        public void printArray(int[,] arr) 
         {
             for (int row = 0; row < arr.GetLength(0); row++)
             {

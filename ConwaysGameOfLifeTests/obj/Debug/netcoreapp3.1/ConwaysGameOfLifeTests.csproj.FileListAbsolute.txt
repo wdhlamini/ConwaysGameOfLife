@@ -1,0 +1,4 @@
+C:\Users\wandile\Desktop\ConwaysGameOfLife\ConwaysGameOfLifeTests\obj\Debug\netcoreapp3.1\ConwaysGameOfLifeTests.csprojAssemblyReference.cache
+C:\Users\wandile\Desktop\ConwaysGameOfLife\ConwaysGameOfLifeTests\obj\Debug\netcoreapp3.1\ConwaysGameOfLifeTests.AssemblyInfoInputs.cache
+C:\Users\wandile\Desktop\ConwaysGameOfLife\ConwaysGameOfLifeTests\obj\Debug\netcoreapp3.1\ConwaysGameOfLifeTests.AssemblyInfo.cs
+C:\Users\wandile\Desktop\ConwaysGameOfLife\ConwaysGameOfLifeTests\obj\Debug\netcoreapp3.1\ConwaysGameOfLifeTests.csproj.CoreCompileInputs.cache
